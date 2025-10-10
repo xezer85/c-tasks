@@ -1,0 +1,207 @@
+﻿using System;
+
+
+namespace ConditionalTasks
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("C# Console Tapşırıqları");
+            Console.WriteLine("--------------------------------------------------");
+
+            // 1) Verilmiş n - ədədinin 3-ə və 7-ə bölünüb-bölünməməsini tapın.
+            Task1_CheckDivisibility();
+            Console.WriteLine("--------------------------------------------------");
+
+            // 2) n və m ədədləri verilir. Əgər n və m ədədləri hər ikisi cütdürsə n və m ədədlərinin cəmini hesablayın.
+            Task2_SumIfBothEven();
+            Console.WriteLine("--------------------------------------------------");
+
+            // 3) Verilmis n ve m (n<m) ededleri arasindaki tek ededlerin cemini tapin.
+            Task3_SumOddNumbersInRange();
+            Console.WriteLine("--------------------------------------------------");
+
+            // 4) Verilmish arrayin icindeki tek ededlerin cemini tapin.
+            Task4_SumOddNumbersInArray();
+            Console.WriteLine("--------------------------------------------------");
+
+            // 5) Verilmish arrayin icindeki cut ededlerin sayini tapin.
+            Task5_CountEvenNumbersInArray();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine("Proqram bitdi. Çıxmaq üçün hər hansı bir düyməni sıxın.");
+            Console.ReadKey();
+        }
+
+        // --- TAPŞIRIQ 1 ---
+        // Verilmiş n - ədədinin 3-ə və 7-ə bölünüb-bölünməməsini tapın.
+        static void Task1_CheckDivisibility()
+        {
+            Console.WriteLine("Tapşırıq 1: Ədədin 3-ə və 7-ə bölünməsi");
+
+            // İstifadəçidən n ədədini daxil etməsini tələb edirik
+            Console.Write("n ədədini daxil edin: ");
+            if (int.TryParse(Console.ReadLine(), out int n))
+            {
+                // Şərt yoxlanılır: ədəd həm 3-ə, həm də 7-ə qalıqsız bölünməlidir.
+                // Qalıqsız bölünməni yoxlamaq üçün % operatorundan istifadə olunur (modul).
+                if (n % 3 == 0 && n % 7 == 0)
+                {
+                    Console.WriteLine($"{n} ədədi həm 3-ə, həm də 7-ə bölünür.");
+                }
+                else
+                {
+                    Console.WriteLine($"{n} ədədi həm 3-ə, həm də 7-ə bölünmür.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Xəta: Yanlış ədəd formatı daxil edildi.");
+            }
+        }
+
+        // --- TAPŞIRIQ 2 ---
+        // n və m ədədləri verilir. Əgər n və m ədədləri hər ikisi cütdürsə n və m ədədlərinin cəmini hesablayın.
+        static void Task2_SumIfBothEven()
+        {
+            Console.WriteLine("Tapşırıq 2: Hər iki ədəd cütdürsə, cəmi tapın");
+
+            // İstifadəçidən n və m ədədlərini daxil etməsini tələb edirik
+            Console.Write("n ədədini daxil edin: ");
+            if (int.TryParse(Console.ReadLine(), out int n))
+            {
+                Console.Write("m ədədini daxil edin: ");
+                if (int.TryParse(Console.ReadLine(), out int m))
+                {
+                    // Şərt yoxlanılır: n və m ədədləri hər ikisi cüt olmalıdır (2-yə qalıqsız bölünməlidir).
+                    if (n % 2 == 0 && m % 2 == 0)
+                    {
+                        int sum = n + m;
+                        Console.WriteLine($"Hər iki ədəd cütdür. Cəm: {n} + {m} = {sum}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ədədlərdən biri və ya hər ikisi təkdir. Cəm hesablanmadı.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Xəta: m üçün yanlış ədəd formatı daxil edildi.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Xəta: n üçün yanlış ədəd formatı daxil edildi.");
+            }
+        }
+
+        // --- TAPŞIRIQ 3 ---
+        // Verilmis n ve m (n<m) ededleri arasindaki tek ededlerin cemini tapin.
+        static void Task3_SumOddNumbersInRange()
+        {
+            Console.WriteLine("Tapşırıq 3: n və m arasındakı tək ədədlərin cəmi");
+
+            int n = 0;
+            int m = 0;
+
+            // İstifadəçidən n və m ədədlərini daxil etməsini tələb edirik, n < m şərti yoxlanılır
+            while (true)
+            {
+                Console.Write("Başlanğıc ədədi (n) daxil edin: ");
+                if (int.TryParse(Console.ReadLine(), out n))
+                {
+                    Console.Write("Son ədədi (m) daxil edin (n < m olmalıdır): ");
+                    if (int.TryParse(Console.ReadLine(), out m))
+                    {
+                        if (n < m)
+                            break;
+                        else
+                            Console.WriteLine("Xəta: n ədədi m ədədindən kiçik olmalıdır. Yenidən cəhd edin.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Xəta: m üçün yanlış ədəd formatı daxil edildi.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Xəta: n üçün yanlış ədəd formatı daxil edildi.");
+                }
+            }
+
+            long oddSum = 0; // Cəmin böyük ola biləcəyini nəzərə alaraq long istifadə edirik
+
+            // n-dən (daxil olmaqla) m-ə (daxil olmamaqla) qədər dövr edirik
+            for (int i = n; i < m; i++)
+            {
+                // Ədədin tək olmasını yoxlayırıq (2-yə bölündükdə qalıq 1 olmalıdır)
+                if (i % 2 != 0)
+                {
+                    oddSum += i;
+                }
+            }
+
+            Console.WriteLine($"[{n}, {m}) aralığındakı tək ədədlərin cəmi: {oddSum}");
+        }
+
+        // --- TAPŞIRIQ 4 ---
+        // Verilmish arrayin icindeki tek ededlerin cemini tapin.
+        static void Task4_SumOddNumbersInArray()
+        {
+            Console.WriteLine("Tapşırıq 4: Array-dəki tək ədədlərin cəmi");
+
+            // Nümunə arrayi təyin edirik
+            int[] numbers = { 10, 5, 22, 13, 8, 7, 30, 19, 4 };
+            Console.WriteLine($"Verilmiş array: [{string.Join(", ", numbers)}]");
+
+            long oddSum = 0;
+
+            // Arrayin hər bir elementi üzərində dövr edirik
+            foreach (int num in numbers)
+            {
+                // Ədədin tək olmasını yoxlayırıq
+                if (num % 2 != 0)
+                {
+                    oddSum += num; // Ədədi cəmə əlavə edirik
+                }
+            }
+
+            Console.WriteLine($"Array-dəki tək ədədlərin cəmi: {oddSum}");
+
+            ///Alternativ (LINQ ilə):
+             long oddSumLinq = numbers.Where(x => x % 2 != 0).Sum(x => (long)x);
+             Console.WriteLine($"Array-dəki tək ədədlərin cəmi (LINQ): {oddSumLinq}");
+        }
+
+        // --- TAPŞIRIQ 5 ---
+        // Verilmish arrayin icindeki cut ededlerin sayini tapin.
+        static void Task5_CountEvenNumbersInArray()
+        {
+            Console.WriteLine("Tapşırıq 5: Array-dəki cüt ədədlərin sayı");
+
+            // Nümunə arrayi təyin edirik
+            int[] numbers = { 10, 5, 22, 13, 8, 7, 30, 19, 4 };
+            Console.WriteLine($"Verilmiş array: [{string.Join(", ", numbers)}]");
+
+            int evenCount = 0;
+
+            // Arrayin hər bir elementi üzərində dövr edirik
+            foreach (int num in numbers)
+            {
+                // Ədədin cüt olmasını yoxlayırıq
+                if (num % 2 == 0)
+                {
+                    evenCount++; // Sayğacı artırırıq
+                }
+            }
+
+            Console.WriteLine($"Array-dəki cüt ədədlərin sayı: {evenCount}");
+
+             //Alternativ (LINQ ilə):
+             int evenCountLinq = numbers.Count(x => x % 2 == 0);
+             Console.WriteLine($"Array-dəki cüt ədədlərin sayı (LINQ): {evenCountLinq}");
+        }
+    }
+}
