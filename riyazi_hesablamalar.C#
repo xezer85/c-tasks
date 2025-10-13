@@ -205,3 +205,43 @@ namespace ConditionalTasks
         }
     }
 }
+using System;
+
+namespace Project
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Zəhmət olmasa bir tam ədəd daxil edin:");
+            string input = Console.ReadLine();
+
+            if (!int.TryParse(input, out int n))
+            {
+                Console.WriteLine("Daxil etdiyiniz giriş tam ədəd deyil.");
+            }
+            else
+            {
+                // Sadə / mürəkkəb yoxlama
+                bool isPrime = Utils.NumberUtils.IsPrime(n);
+
+                if (n <= 1)
+                {
+                    Console.WriteLine($"{n} həm sadə, həm də mürəkkəb ədəd deyil.");
+                }
+                else if (isPrime)
+                {
+                    Console.WriteLine($"{n} sadə ədəddir.");
+                }
+                else
+                {
+                    Console.WriteLine($"{n} mürəkkəb ədəddir.");
+                }
+            }
+
+            Console.WriteLine("Proqram bitdi. Enter-lə çıxın.");
+            Console.ReadLine();
+        }
+    }
+}
+
