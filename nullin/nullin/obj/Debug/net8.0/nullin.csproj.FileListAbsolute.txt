@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.AssemblyInfo.cs
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.sourcelink.json
+C:\Users\user\Desktop\c# tasks\nullin\nullin\bin\Debug\net8.0\nullin.exe
+C:\Users\user\Desktop\c# tasks\nullin\nullin\bin\Debug\net8.0\nullin.deps.json
+C:\Users\user\Desktop\c# tasks\nullin\nullin\bin\Debug\net8.0\nullin.runtimeconfig.json
+C:\Users\user\Desktop\c# tasks\nullin\nullin\bin\Debug\net8.0\nullin.dll
+C:\Users\user\Desktop\c# tasks\nullin\nullin\bin\Debug\net8.0\nullin.pdb
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.dll
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\refint\nullin.dll
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.pdb
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\nullin.genruntimeconfig.cache
+C:\Users\user\Desktop\c# tasks\nullin\nullin\obj\Debug\net8.0\ref\nullin.dll
